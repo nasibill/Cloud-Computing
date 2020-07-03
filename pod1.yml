@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2020-06-29T10:22:09Z"
+  generateName: static-site-deployment-77bddfdf96-
+  labels:
+    app: static-site
+    pod-template-hash: 77bddfdf96
+  name: static-site-deployment-77bddfdf96-6v8ct
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: static-site-deployment-77bddfdf96
+    uid: d87bcea3-5db8-4480-ae2e-2ef178475dae
+  resourceVersion: "36910"
+  selfLink: /api/v1/namespaces/default/pods/static-site-deployment-77bddfdf96-6v8ct
+  uid: b065b0ac-7c2b-4ea7-89cc-058c30ae678d
+spec:
+  containers:
+  - image: lelo:v1
+    imagePullPolicy: IfNotPresent
+    name: static-site
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /home/node4/Desktop/covid19/images/
+      name: volume
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-wvsm9
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: 10.0.3.15
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - hostPath:
+      path: /images
+      type: ""
+    name: volume
+  - name: default-token-wvsm9
+    secret:
+      defaultMode: 420
+      secretName: default-token-wvsm9
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-29T10:22:09Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-03T16:33:32Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-03T16:33:32Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-29T10:22:09Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://ca6d30877a3445952bf40b15cd28bd6bb0a42960f961e10f7b8c3c26a8a03e51
+    image: lelo:v1
+    imageID: docker://sha256:074d0e7c46126660c6851e5b0d425f567dc10c97bc30c8d43b484d771dddf6fe
+    lastState: {}
+    name: static-site
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-07-03T16:33:14Z"
+  hostIP: 10.0.3.15
+  phase: Running
+  podIP: 10.20.85.10
+  podIPs:
+  - ip: 10.20.85.10
+  qosClass: BestEffort
+  startTime: "2020-06-29T10:22:09Z"
+
